@@ -4,6 +4,7 @@ const Joi = require('joi');
 const {
   findAllCocktails,
   findOneCocktail,
+  findAllByCocktail,
   postCocktail,
   putCocktail,
   deleteCocktail,
@@ -39,6 +40,13 @@ cocktailsRouter.get('/:id', async (req, res) => {
   const [[result]] = await findOneCocktail(id);
   return res.json(result);
 });
+
+cocktailsRouter.get('/:id/ingredients', async (req, res) => {
+  const { id } = req.params;
+  const [result] = await findAllByCocktail(id);
+  return res.json(result);
+});
+
 
 cocktailsRouter.post('/', async (req, res) => {
   const { error, value: validCocktail } = cocktailValidation().validate(req.body);

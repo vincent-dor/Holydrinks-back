@@ -11,6 +11,7 @@ connection.connect((err) => {
   }
 });
 
+const setupRoutes = require('./routers/routes');
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -18,6 +19,7 @@ const port = process.env.PORT || 8000;
 app.use(cors());
 app.use(express.json());
 
+setupRoutes(app);
 
 app.listen(port, () => {
   console.log(`Server run on ${port}`);

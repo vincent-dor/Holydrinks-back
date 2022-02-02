@@ -2,19 +2,19 @@ const connection = require('../db-config');
 
 const db = connection.promise();
 
-const findAllCocktails= () => db.query(`SELECT cktl.*, usr.firstname AS userFirstName, usr.lastname AS userLastName, c.name AS category FROM cocktails cktl 
+const findAllCocktails= () => db.query(`SELECT cktl.*, usr.firstname AS userFirstName, usr.lastname AS userLastName, c.name AS category FROM cocktails cktl
   JOIN users usr ON cktl.userId = usr.id 
   JOIN categories c ON cktl.categoryId = c.id`);
 
-const findAllByCategory = (name) => db.query(`SELECT cktl.*, usr.firstname AS userFirstName, usr.lastname AS userLastName, c.name AS category FROM products pdt 
+const findOneCocktail = (id) => db.query(`SELECT cktl.*, usr.firstname AS userFirstName, usr.lastname AS userLastName, c.name AS category FROM cocktails cktl
   JOIN users usr ON cktl.userId = usr.id 
   JOIN categories c ON cktl.categoryId = c.id 
-  WHERE c.name = ?`, [name]);
+  WHERE cktl.id = ?`, [id]);
 
-const findOneCocktail = (id) => db.query(`SELECT cktl.*, usr.firstname AS userFirstName, usr.lastname AS userLastName, c.name AS category FROM products pdt 
-JOIN users usr ON cktl.userId = usr.id 
-JOIN categories c ON cktl.categoryId = c.id 
-WHERE c.name = ?`, [id]);
+const findAllByCocktail = (id) => db.query(`SELECT cktl.*, usr.name AS ListName, i.name AS ingredient FROM lists cktl
+  JOIN cocktails usr ON cktl.cocktailId = usr.id 
+  JOIN ingredients i ON cktl.ingredientId = i.id
+  WHERE usr.id = ?`, [id]);
 
 const postCocktail = ({
   name,
@@ -39,8 +39,8 @@ const deleteCocktail = (id) => db.query('DELETE FROM cocktails WHERE id = ?', [i
 
 module.exports = {
   findAllCocktails,
-  findAllByCategory,
   findOneCocktail,
+  findAllByCocktail,
   postCocktail,
   putCocktail,
   deleteCocktail,

@@ -10,11 +10,10 @@ const {
   deleteCocktail,
 } = require('../models/cocktailsModel');
 
-const cocktailValidation = (isEdited = false) => {
-  const presence = isEdited ? 'optional' : 'required';
+const cocktailValidation = () => {
   return Joi.object({
     name: Joi.string().max(200).presence('optional'),
-    image: Joi.string().max(200).presence('optional'),
+    image: Joi.string().max(355).presence('optional'),
     description: Joi.string().max(355).presence('optional'),
     categoryId: Joi.number().presence('optional'),
     userId: Joi.number().presence('optional'),

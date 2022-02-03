@@ -5,7 +5,7 @@ require('dotenv').config();
 const checkJwt = (req, res, next) => {
   const { authorization } = req.headers;
   if (authorization) {
-    const token = authorization.slice(7, authorization.length);
+    const token = authorization(authorization.length);
     jwt.verify(
       token,
       process.env.JWT_SECRET,

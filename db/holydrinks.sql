@@ -45,8 +45,12 @@ CREATE TABLE `cocktails` (
 
 INSERT INTO `cocktails` (`name`, `image`, `description`, `categoryId`, `userId`) 
 VALUES 
-  ('Mojito', 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Mojito_003.jpg', 'Le mojito simple à savourer!', 1, 1),
-  ('Kir Royal', 'https://upload.wikimedia.org/wikipedia/commons/a/a4/15-09-26-RalfR-WLC-0299.jpg', 'Le kir Royal à savourer!', 3, 1);
+  ('Mojito', 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Mojito_003.jpg', 'Librement inspiré du Mint Julep (cocktail à base de whisky), le Mojito ou Drake (nom légendaire préféré par les anglo saxons) est un cocktail qui fleure bon la Havane.', 1, 1),
+  ('Amaretto Sunrise', 'https://upload.wikimedia.org/wikipedia/commons/b/b7/Tequila_Sunrise.jpg', 'L’Amaretto Sunrise est un cocktail coloré à base d’amaretto (liqueur italienne), de grenadine et de jus d’orange, servi sur glaçons frais, doit être dégusté frais et idéalement les pieds dans l’eau. Avec cette recette vous étonnerez vos amis lors de vos soirées barbecue/piscine.', 1, 1),
+  ('Cuba Libra', 'https://upload.wikimedia.org/wikipedia/commons/b/b7/CubaLibre_front001x.jpg', 'Le Cuba libre ou rhum-Coca,, ou rum and Coke (aux États-Unis et au Canada anglophone et francophone) ou Cuba au Mexique est un cocktail à base de rhum, de citron vert et de cola.', 1, 1),
+  ('Kir Royal', 'https://upload.wikimedia.org/wikipedia/commons/a/a4/15-09-26-RalfR-WLC-0299.jpg', 'Le kir Royal à savourer!', 3, 1),
+  ('Punch de Noël', 'https://upload.wikimedia.org/wikipedia/commons/a/a0/Southern_Bourbon_Punch.jpg', 'Rien de plus convivial qu’un punch ou chacun peut se servir quand il le souhaite pour les fêtes de fin d’année. Cette recette de punch de noël pleine de saveurs et très colorée va égayer votre table.', 2, 1),
+  ('Halloween punch', 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Yummy_punch_made_by_moi_%28185709223%29.jpg', 'Que ce soit le soir d’Halloween ou pour une soirée lugubre entre amis ou avec des proches, je vous propose de découvrir la recette Halloween Punch dont la composition terrifiante ne laissera pas vos invités insensible.', 2, 1);
 
 CREATE TABLE `ingredients` (
   `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -61,7 +65,18 @@ VALUES
   ('Citron vert'),
   ('Rhum blanc'),
   ('Champagne'),
-  ('Crème de cassis');
+  ('Crème de cassis'),
+  ('Amaretto'),
+  ('Grenadine'),
+  ('Orange pressé'),
+  ('Coca cola'),
+  ('Rhum brun'),
+  ('Sucre brun'),
+  ('Ananas'),
+  ('Vanille'),
+  ('Jus de raisin'),
+  ('Sorbet orange'),
+  ('Sorbet citron');
 
 CREATE TABLE `lists` (
   `ingredientId` INT NOT NULL,
@@ -76,6 +91,22 @@ VALUES
   (2, 1),
   (3, 1),
   (4, 1),
-  (5, 2),
-  (6, 2),
-  (7, 2);
+  (5, 4),
+  (6, 4),
+  (7, 4),
+  (8, 2),
+  (9, 2),
+  (10, 2),
+  (11, 3),
+  (12, 3),
+  (4, 3),
+  (4, 5),
+  (5, 5),
+  (10, 5),
+  (13, 5),
+  (14, 5),
+  (15, 5),
+  (16, 6),
+  (17, 6),
+  (18, 6),
+  (2, 6);

@@ -13,11 +13,11 @@ const {
 const cocktailValidation = (isEdited = false) => {
   const presence = isEdited ? 'optional' : 'required';
   return Joi.object({
-    name: Joi.string().max(200).presence(presence),
+    name: Joi.string().max(200).presence('optional'),
     image: Joi.string().max(200).presence('optional'),
     description: Joi.string().max(355).presence('optional'),
-    categoryId: Joi.number().presence(presence),
-    userId: Joi.number().presence(presence),
+    categoryId: Joi.number().presence('optional'),
+    userId: Joi.number().presence('optional'),
   });
 };
 
